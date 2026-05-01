@@ -2,7 +2,7 @@
 
 This guide walks you through everything you need to run **`sensor_correction_ASIC.ipynb`** on your own laptop. The notebook is a hands-on tutorial that calibrates a PurpleAir low-cost sensor against US Embassy reference data using multiple linear regression in Python.
 
-No prior Python experience is required to follow these setup steps.
+If you already have Jupyter Notebooks setup on your laptop, you can probably skip most of this. No prior Python experience is required to follow these setup steps.
 
 ---
 
@@ -129,5 +129,3 @@ conda activate asic2026
 cd path/to/ASIC2026
 jupyter notebook
 ```
-
-That's it — see you at ASIC 2026.
