@@ -90,8 +90,3 @@ If multiple packages are missing, you can install them all at once:
 ```
 
 
----
-
-## You're all set
-
-See you at the workshop. If you run into any issues with these steps, please come a few minutes early so we can sort them out before the live demo starts.
