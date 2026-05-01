@@ -14,7 +14,7 @@ By the end you will have:
 Anaconda is a free Python distribution that comes with Jupyter Notebook and almost every package we'll need already included.
 
 1. Go to **https://www.anaconda.com/download**. You can skip the email signup by clicking *Skip registration*.
-2. Download the installer for your operating system. On macOS, choose the version matching your chip — Apple Silicon (M1/M2/M3/M4) or Intel. If you're unsure, click the Apple menu → *About This Mac* and look at "Chip."
+2. Download the installer for your operating system. On macOS, choose the version matching your chip, either Apple Silicon (M1/M2/M3/M4) or Intel. If you're unsure, click the Apple menu → *About This Mac* and look at "Chip."
 3. Run the installer and accept all the default options. It's a large download (~700 MB) and may take several minutes to install.
 
 ---
@@ -75,7 +75,7 @@ If you instead see `ModuleNotFoundError: No module named '...'` for any package,
 
 **`ModuleNotFoundError: No module named 'aiohttp'` (or any other package)**
 
-The package isn't installed in your environment yet. The easiest fix is to install it from inside the notebook itself. In a new cell, paste this — replacing `aiohttp` with whichever package was missing — and run it:
+The package isn't installed in your environment yet. The easiest fix is to install it from inside the notebook itself. In a new cell, paste this, replacing `aiohttp` with whichever package was missing, and run it:
 
 ```python
 %pip install aiohttp
