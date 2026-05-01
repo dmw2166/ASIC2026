@@ -1,6 +1,6 @@
-# ASIC2026 — Pre-Workshop Setup
+# ASIC2026 Python coding — Pre-Workshop Setup
 
-Before the workshop, please complete the steps below so you arrive ready to code along. The whole process takes about 15 minutes and does **not** require using a terminal or command line.
+Before the workshop, please complete the steps below so you arrive ready to code along. The whole process takes about 15 minutes.
 
 By the end you will have:
 1. Anaconda installed
@@ -16,8 +16,6 @@ Anaconda is a free Python distribution that comes with Jupyter Notebook and almo
 1. Go to **https://www.anaconda.com/download**. You can skip the email signup by clicking *Skip registration*.
 2. Download the installer for your operating system. On macOS, choose the version matching your chip — Apple Silicon (M1/M2/M3/M4) or Intel. If you're unsure, click the Apple menu → *About This Mac* and look at "Chip."
 3. Run the installer and accept all the default options. It's a large download (~700 MB) and may take several minutes to install.
-
-> If the installer is too large for your machine, you can install **Miniconda** instead (https://www.anaconda.com/docs/getting-started/miniconda/install) and then install Anaconda Navigator from inside it. For most people, the regular Anaconda installer is the simpler path.
 
 ---
 
@@ -37,7 +35,7 @@ The first launch can take 30–60 seconds. You'll see a window with several tile
 
 In Anaconda Navigator, find the **Jupyter Notebook** tile and click the **Launch** button beneath it.
 
-A new tab will open in your default browser showing a file browser — this is Jupyter. You're now looking at the contents of your home folder (Documents, Downloads, etc.). Don't close the small black terminal-looking window that opens in the background; that's the Jupyter server, and closing it will shut Jupyter down.
+A new tab will open in your default browser showing a file browser. You're now looking at the contents of your home folder (Documents, Downloads, etc.). Don't close the small black terminal-looking window that opens in the background; that's the Jupyter server, and closing it will shut Jupyter down.
 
 ---
 
@@ -45,7 +43,7 @@ A new tab will open in your default browser showing a file browser — this is J
 
 In the Jupyter file browser:
 
-1. Navigate into a folder where you'd like to save your work — for example, *Documents* or *Desktop*. You can click into folders just like in any file explorer.
+1. Navigate into a folder where you'd like to save your work, for example, *Documents* or *Desktop*. You can click into folders just like in any file explorer.
 2. In the top-right corner, click **New**, then choose **Python 3 (ipykernel)**.
 
 A blank notebook will open in a new tab. This is what we'll be coding in during the workshop. Feel free to rename it from "Untitled" by clicking the title at the top of the page.
@@ -91,15 +89,6 @@ If multiple packages are missing, you can install them all at once:
 %pip install pandas matplotlib scipy scikit-learn fsspec aiohttp
 ```
 
-> Note: the package is `scikit-learn` when installing, but you `import sklearn` in code. That's normal.
-
-**Anaconda Navigator won't open or crashes on launch**
-
-Try restarting your computer. If that doesn't help, reinstall Anaconda using the default options.
-
-**The "New" button in Jupyter is greyed out or missing**
-
-Make sure you've clicked into an actual folder (not a read-only system location). Navigate to your Documents or Desktop folder first, then try again.
 
 ---
 
