@@ -1,131 +1,108 @@
-# ASIC2026 — Setup Guide
+# ASIC2026 — Pre-Workshop Setup
 
-This guide walks you through everything you need to run **`sensor_correction_ASIC.ipynb`** on your own laptop. The notebook is a hands-on tutorial that calibrates a PurpleAir low-cost sensor against US Embassy reference data using multiple linear regression in Python.
+Before the workshop, please complete the steps below so you arrive ready to code along. The whole process takes about 15 minutes and does **not** require using a terminal or command line.
 
-If you already have Jupyter Notebooks setup on your laptop, you can probably skip most of this. No prior Python experience is required to follow these setup steps.
+By the end you will have:
+1. Anaconda installed
+2. A blank Jupyter notebook open in your browser
+3. Confirmed that the packages we'll use are working
 
 ---
 
 ## 1. Install Anaconda
 
-Anaconda is a free Python distribution that comes bundled with Jupyter Notebook and almost every scientific package this tutorial uses. One installer gives you everything.
+Anaconda is a free Python distribution that comes with Jupyter Notebook and almost every package we'll need already included.
 
-1. Go to the official download page: **https://www.anaconda.com/download**
-2. Choose the installer for your operating system (Windows, macOS, or Linux). On macOS, pick the version that matches your chip — Apple Silicon (M1/M2/M3/M4) or Intel.
-3. Run the installer and accept the default options. When prompted:
-   - **Windows**: leave "Add Anaconda to my PATH" *unchecked* (the default) and let it register Anaconda as your default Python.
-   - **macOS / Linux**: accept the default install location and let the installer run `conda init` at the end.
-4. After it finishes, **close and reopen your terminal** (or open a fresh **Anaconda Prompt** on Windows). This is required for the `conda` command to be picked up.
+1. Go to **https://www.anaconda.com/download**. You can skip the email signup by clicking *Skip registration*.
+2. Download the installer for your operating system. On macOS, choose the version matching your chip — Apple Silicon (M1/M2/M3/M4) or Intel. If you're unsure, click the Apple menu → *About This Mac* and look at "Chip."
+3. Run the installer and accept all the default options. It's a large download (~700 MB) and may take several minutes to install.
 
-Verify it worked:
-
-```bash
-conda --version
-```
-
-You should see something like `conda 24.x.x`. If you get "command not found," reopen the terminal once more — on Windows, use **Anaconda Prompt** specifically, not regular Command Prompt or PowerShell.
+> If the installer is too large for your machine, you can install **Miniconda** instead (https://www.anaconda.com/docs/getting-started/miniconda/install) and then install Anaconda Navigator from inside it. For most people, the regular Anaconda installer is the simpler path.
 
 ---
 
-## 2. Download the notebook
+## 2. Open Anaconda Navigator
 
-You have two options.
+Anaconda Navigator is the graphical app that lets you launch Jupyter without touching a terminal.
 
-**Option A — Download as a ZIP (easiest):**
-1. Go to https://github.com/dmw2166/ASIC2026
-2. Click the green **Code** button, then **Download ZIP**.
-3. Unzip it somewhere convenient (e.g. your Desktop or Documents folder).
+- **Windows**: Open the Start Menu and search for *Anaconda Navigator*.
+- **macOS**: Open Launchpad or your Applications folder and click *Anaconda Navigator*.
+- **Linux**: Open your applications menu and search for *Anaconda Navigator*.
 
-**Option B — Clone with git** (if you already have git installed):
-
-```bash
-git clone https://github.com/dmw2166/ASIC2026.git
-```
-
-Either way, you should end up with a folder called `ASIC2026` containing `sensor_correction_ASIC.ipynb`.
+The first launch can take 30–60 seconds. You'll see a window with several tiles, one of which is **Jupyter Notebook**.
 
 ---
 
-## 3. Create an environment and install the required packages
+## 3. Launch Jupyter Notebook
 
-The notebook uses these libraries:
+In Anaconda Navigator, find the **Jupyter Notebook** tile and click the **Launch** button beneath it.
 
-| Package | Used for |
-|---|---|
-| `pandas` | Loading and reshaping the sensor data |
-| `matplotlib` | Plotting time series and diurnal profiles |
-| `scipy` | Linear regression statistics |
-| `scikit-learn` | The multiple linear regression model and train/test split |
-| `fsspec` + `aiohttp` | Streaming the zipped PurpleAir CSVs directly from a URL |
-| `jupyter` | Running the notebook itself |
-
-You can either install these into Anaconda's default `base` environment or create a dedicated one. A dedicated environment is cleaner and is the recommended approach.
-
-Open a terminal (**Anaconda Prompt** on Windows) and run:
-
-```bash
-conda create -n asic2026 python=3.13 pandas matplotlib scipy scikit-learn fsspec aiohttp jupyter -c conda-forge -y
-conda activate asic2026
-```
-
-The first command builds a new environment called `asic2026` and installs everything in one shot. The second one activates it — you'll see `(asic2026)` appear at the start of your prompt.
-
-> **Tip:** every time you open a new terminal to work on this tutorial, you'll need to run `conda activate asic2026` first.
+A new tab will open in your default browser showing a file browser — this is Jupyter. You're now looking at the contents of your home folder (Documents, Downloads, etc.). Don't close the small black terminal-looking window that opens in the background; that's the Jupyter server, and closing it will shut Jupyter down.
 
 ---
 
-## 4. Launch Jupyter and open the notebook
+## 4. Create a new blank notebook
 
-With the environment activated, navigate to the folder where you put the notebook and start Jupyter:
+In the Jupyter file browser:
 
-```bash
-cd path/to/ASIC2026
-jupyter notebook
-```
+1. Navigate into a folder where you'd like to save your work — for example, *Documents* or *Desktop*. You can click into folders just like in any file explorer.
+2. In the top-right corner, click **New**, then choose **Python 3 (ipykernel)**.
 
-Replace `path/to/ASIC2026` with the actual path on your machine. For example:
-
-- **Windows**: `cd C:\Users\YourName\Downloads\ASIC2026`
-- **macOS / Linux**: `cd ~/Downloads/ASIC2026`
-
-A browser tab will open showing the contents of the folder. Click **`sensor_correction_ASIC.ipynb`** to open it.
-
-If you'd rather use **JupyterLab** (a more modern interface that's also included with Anaconda), use `jupyter lab` instead.
+A blank notebook will open in a new tab. This is what we'll be coding in during the workshop. Feel free to rename it from "Untitled" by clicking the title at the top of the page.
 
 ---
 
-## 5. Run the notebook
+## 5. Confirm the packages work
 
-Once the notebook is open, run the cells one at a time using **Shift + Enter**, or run everything at once via the menu: **Cell → Run All** (in classic Jupyter) or **Run → Run All Cells** (in JupyterLab).
+To make sure everything we'll use during the live demo is installed, click into the first empty cell of your new notebook, paste the code below, and press **Shift + Enter** to run it:
 
-The first code cell loads PurpleAir data from a remote zip file, so make sure you have an active internet connection the first time you run it.
+```python
+import pandas
+import matplotlib
+import scipy
+import sklearn
+import fsspec
+import aiohttp
+
+print("All packages loaded successfully")
+```
+
+If you see `All packages loaded successfully` with no error messages, you're done — close the notebook and you're ready for the workshop.
+
+If you instead see `ModuleNotFoundError: No module named '...'` for any package, jump to the troubleshooting section below.
 
 ---
 
 ## Troubleshooting
 
-**`ModuleNotFoundError: No module named 'fsspec'`** (or any other package)
-You probably opened the notebook in the wrong environment. Confirm by running `import sys; print(sys.executable)` in a notebook cell — the path should contain `asic2026`. If it doesn't, shut down Jupyter, run `conda activate asic2026` in your terminal, and relaunch with `jupyter notebook`.
+**`ModuleNotFoundError: No module named 'aiohttp'` (or any other package)**
 
-**The notebook hangs on the first data-loading cell**
-That cell streams a zip file over HTTP. If it never completes, check your internet connection or any corporate firewall / VPN that might block the download.
+The package isn't installed in your environment yet. The easiest fix is to install it from inside the notebook itself. In a new cell, paste this — replacing `aiohttp` with whichever package was missing — and run it:
 
-**`jupyter: command not found` after activating the environment**
-The environment was created without Jupyter. Install it now: `conda install jupyter -y`.
+```python
+%pip install aiohttp
+```
 
-**Anaconda installer is too large or fails to install**
-A lighter alternative is **Miniconda** (https://www.anaconda.com/docs/getting-started/miniconda/install). All of the `conda create` commands above work identically with Miniconda.
+After it finishes, restart the kernel by going to **Kernel → Restart** in the menu, then re-run the import cell from step 5.
+
+If multiple packages are missing, you can install them all at once:
+
+```python
+%pip install pandas matplotlib scipy scikit-learn fsspec aiohttp
+```
+
+> Note: the package is `scikit-learn` when installing, but you `import sklearn` in code. That's normal.
+
+**Anaconda Navigator won't open or crashes on launch**
+
+Try restarting your computer. If that doesn't help, reinstall Anaconda using the default options.
+
+**The "New" button in Jupyter is greyed out or missing**
+
+Make sure you've clicked into an actual folder (not a read-only system location). Navigate to your Documents or Desktop folder first, then try again.
 
 ---
 
-## Quick reference
+## You're all set
 
-```bash
-# one-time setup
-conda create -n asic2026 python=3.13 pandas matplotlib scipy scikit-learn fsspec aiohttp jupyter -c conda-forge -y
-
-# every time you work on the tutorial
-conda activate asic2026
-cd path/to/ASIC2026
-jupyter notebook
-```
+See you at the workshop. If you run into any issues with these steps, please come a few minutes early so we can sort them out before the live demo starts.
